@@ -59,9 +59,9 @@ $ docker-compose logs -f
     - Sites
     - Date range
   -
-  - Expected request query params:
+  - Expected request query params with filters:
     ```
-    tickets?startDate=2020-01-01&endDate=2024-10-04&siteIds=1
+    /tickets?startDate=2020-01-01&endDate=2024-10-04&siteIds=3&siteIds=1
     ```
 
 ## Data Models
