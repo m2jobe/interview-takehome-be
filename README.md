@@ -37,6 +37,19 @@ $ docker-compose logs -f
 - **POST** `/tickets/bulk`
   - Creates multiple tickets for a truck
   - Validates that tickets are not dispatched at the same time or in the future
+  - Expected request body:
+    ```json
+    {
+      "tickets": [
+        {
+          "siteId": 2,
+          "truckId": 4,
+          "dispatchedAt": "2024-10-03 00:00:00"
+        }
+        // ... more ticket objects
+      ]
+    }
+    ```
 
 ### Fetch Tickets
 
