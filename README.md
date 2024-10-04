@@ -13,6 +13,7 @@ This project is a NestJS application containerized with Docker, developed as a t
 - Docker
 - Docker Compose
 - Git
+- Postman or similar API testing tool
 
 ## Project Setup
 
@@ -27,7 +28,7 @@ This project is a NestJS application containerized with Docker, developed as a t
    ```bash
    $ cp .env.example .env
    ```
-   Open the `.env` file for confirmation you shouldnt need to adjust the values here
+   Open the `.env` file for confirmation. You shouldn't need to adjust the values here.
 
 ## Running the Application
 
@@ -73,6 +74,15 @@ $ docker-compose logs -f
     ```
     /tickets?startDate=2020-01-01&endDate=2024-10-04&siteIds=3&siteIds=1
     ```
+
+## Testing the API
+
+To test the API endpoints, you can use Postman or any similar API testing tool. Import the provided API collection (if available) or create new requests based on the endpoint descriptions above.
+
+1. Open Postman or your preferred API testing tool.
+2. Create a new request for each endpoint (POST `/tickets/bulk` and GET `/tickets`).
+3. Set the appropriate HTTP method, URL and request body/params as described in the API Endpoints section.
+4. Send the requests and observe the responses.
 
 ## Data Models
 
