@@ -17,9 +17,6 @@ export class Truck {
   @Column()
   license: string;
 
-  @Column({ nullable: true })
-  description?: string;
-
   @OneToMany(() => Ticket, (ticket) => ticket.truck)
   tickets: Ticket[];
 
