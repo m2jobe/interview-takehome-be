@@ -131,7 +131,3 @@ $ docker-compose down
 - Uses Postgres
 - Follows RESTful API structure
 - Containerized with Docker for easy setup and deployment
-
-## License
-
-This project is [MIT licensed](LICENSE).
