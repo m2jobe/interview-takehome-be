@@ -17,6 +17,7 @@ This project is a NestJS application containerized with Docker, developed as a t
 ## Project Setup
 
 1. Clone the repository:
+
    ```bash
    $ git clone https://github.com/m2jobe/interview-takehome-be
    $ cd interview-takehome-be
@@ -119,9 +120,6 @@ $ docker-compose exec app npm run test
 
 # Run e2e tests
 $ docker-compose exec app npm run test:e2e
-
-# Run test coverage
-$ docker-compose exec app npm run test:cov
 ```
 
 ## Stopping the Application
