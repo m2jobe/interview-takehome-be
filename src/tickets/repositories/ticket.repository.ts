@@ -23,8 +23,11 @@ export class TicketRepository extends Repository<Ticket> {
       .leftJoinAndSelect('ticket.site', 'site')
       .leftJoinAndSelect('ticket.truck', 'truck');
 
-    if (siteIds && siteIds.length > 0) {
-      query.andWhere('ticket.siteId IN (:...siteIds)', { siteIds });
+    if (siteIds) {
+      const siteIdsArray = Array.isArray(siteIds) ? siteIds : [siteIds];
+      query.andWhere('ticket.siteId IN (:...siteIds)', {
+        siteIds: siteIdsArray,
+      });
     }
 
     if (startDate && endDate) {
