@@ -46,7 +46,7 @@ $ docker-compose logs -f
 
 ### Create Tickets in Bulk
 
-- **POST** `/tickets/bulk`
+- **POST** `localhost:3000/tickets/bulk`
   - Creates multiple tickets for a truck
   - Validates that tickets are not dispatched at the same time or in the future
   - Expected request body:
@@ -65,14 +65,14 @@ $ docker-compose logs -f
 
 ### Fetch Tickets
 
-- **GET** `/tickets`
+- **GET** `localhost:3000/tickets`
   - Retrieves all tickets
   - Can be filtered by:
     - Sites
     - Date range
   - Expected request query params with filters:
     ```
-    /tickets?startDate=2020-01-01&endDate=2024-10-04&siteIds=3&siteIds=1
+    localhost:3000/tickets?startDate=2020-01-01&endDate=2024-10-04&siteIds=3&siteIds=1
     ```
 
 ## Testing the API
