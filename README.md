@@ -12,11 +12,21 @@ This project is a NestJS application containerized with Docker, developed as a t
 
 - Docker
 - Docker Compose
+- Git
 
 ## Project Setup
 
-1. Clone the repository
-2. Navigate to the project directory
+1. Clone the repository:
+   ```bash
+   $ git clone https://github.com/m2jobe/interview-takehome-be
+   $ cd interview-takehome-be
+   ```
+
+2. Copy the example environment file and configure it:
+   ```bash
+   $ cp .env.example .env
+   ```
+   Open the `.env` file for confirmation you shouldnt need to adjust the values here
 
 ## Running the Application
 
