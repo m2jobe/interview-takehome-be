@@ -55,54 +55,39 @@ describe('Tickets - Filter (e2e)', () => {
   });
 
   it('/tickets (GET) should filter tickets by siteIds', async () => {
-    try {
-      const response = await request(app.getHttpServer())
-        .get('/tickets')
-        .query({ siteIds: ['1'] })
-        .expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/tickets')
+      .query({ siteIds: ['1'] })
+      .expect(200);
 
-      expect(response.body).toHaveLength(2);
-      expect(response.body[0].siteId).toBe(1);
-      expect(response.body[1].siteId).toBe(1);
-    } catch (error) {
-      console.error('Test failed with error:', error);
-      throw error;
-    }
+    expect(response.body).toHaveLength(2);
+    expect(response.body[0].siteId).toBe(1);
+    expect(response.body[1].siteId).toBe(1);
   });
 
   it('/tickets (GET) should filter tickets by date range', async () => {
-    try {
-      const response = await request(app.getHttpServer())
-        .get('/tickets')
-        .query({
-          startDate: '2023-05-01T00:00:00.000Z',
-          endDate: '2023-05-02T23:59:59.999Z',
-        })
-        .expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/tickets')
+      .query({
+        startDate: '2023-05-01T00:00:00.000Z',
+        endDate: '2023-05-02T23:59:59.999Z',
+      })
+      .expect(200);
 
-      expect(response.body).toHaveLength(2);
-      expect(new Date(response.body[0].dispatchedAt)).toBeInstanceOf(Date);
-      expect(new Date(response.body[1].dispatchedAt)).toBeInstanceOf(Date);
-    } catch (error) {
-      console.error('Test failed with error:', error);
-      throw error;
-    }
+    expect(response.body).toHaveLength(2);
+    expect(new Date(response.body[0].dispatchedAt)).toBeInstanceOf(Date);
+    expect(new Date(response.body[1].dispatchedAt)).toBeInstanceOf(Date);
   });
 
   it('/tickets (GET) should handle invalid filter parameters', async () => {
-    try {
-      const response = await request(app.getHttpServer())
-        .get('/tickets')
-        .query({ startDate: 'invalid-date' })
-        .expect(400);
+    const response = await request(app.getHttpServer())
+      .get('/tickets')
+      .query({ startDate: 'invalid-date' })
+      .expect(400);
 
-      expect(response.body).toHaveProperty('message');
-      expect(response.body.message[0]).toContain(
-        'startDate must be a valid ISO 8601 date string',
-      );
-    } catch (error) {
-      console.error('Test failed with error:', error);
-      throw error;
-    }
+    expect(response.body).toHaveProperty('message');
+    expect(response.body.message[0]).toContain(
+      'startDate must be a valid ISO 8601 date string',
+    );
   });
 });
