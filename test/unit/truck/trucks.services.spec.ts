@@ -48,7 +48,6 @@ describe('TrucksService', () => {
       expect(result).toEqual(expectedResult);
       expect(repository.findOne).toHaveBeenCalledWith({
         where: { id: 1 },
-        relations: ['site'],
       });
     });
 
@@ -58,7 +57,6 @@ describe('TrucksService', () => {
       await expect(service.findOne(1)).rejects.toThrow(NotFoundException);
       expect(repository.findOne).toHaveBeenCalledWith({
         where: { id: 1 },
-        relations: ['site'],
       });
     });
   });

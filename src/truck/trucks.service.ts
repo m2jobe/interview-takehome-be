@@ -11,10 +11,8 @@ export class TrucksService {
   ) {}
 
   async findOne(id: number): Promise<Truck> {
-    const truck = await this.truckRepository.findOne({
-      where: { id },
-      relations: ['site'],
-    });
+    const truck = await this.truckRepository.findOne({ where: { id } });
+
     if (!truck) {
       throw new NotFoundException(`Truck with ID "${id}" not found`);
     }
